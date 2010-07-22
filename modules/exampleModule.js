@@ -2,22 +2,21 @@ $(document).ready(function() {
     BLSJS.Core.register("exampleModule", function(utils) {
         return {
             init: function() {
-                utils.log("debug", "Example", "Example message");
-                utils.log("info", "Example", "Example info message");
+                utils.log("info", "Example", "Module initialized");
                 this.listeners();
             },
             destroy: function() {
-               $("#foo").unbind("click");
             },
             listeners: function() {
-                $("#foo").click(function() {
-                    utils.log("debug", "Example", "#foo clicked");
-                    $("div").toggle(function(){
-                        $(this).css({"color":"#ff0000"});
-                    }, function(){
-                        $(this).css({"color":"#000"});
-                    });
+                var MS = [];
+                var i = 0;
+                $("#multiselector").each(function() {
+                    MS[i] = new BLSJS.class_multiselector(jQuery(this));
+                    MS[i].init("a.add","a.remove");
+                    i++;
+                    utils.log("debug","Example","multiselektor numer " + (i+1) +" aktywowany");
                 });
+                utils.log("info","Example","Multiselector initialized")
             }
         }
     });
