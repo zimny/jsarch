@@ -1,4 +1,14 @@
-
+/**
+ * allows to move multiple selected option tags from one select to another.
+ *
+ * Usage:
+ *  $('.multiSelector').each(function() {
+ *      MS[i] = new BLSJS.class_multiselector(jQuery(this));
+ *      MS[i].init();
+ *      i++;
+ *   });
+ * @param {jQuery} multiselector
+ */
 BLSJS.class_multiselector = function(multiselector) {
     this.multiselector = multiselector;
     this.leftBox = this.multiselector.find('.left > select');
@@ -41,22 +51,20 @@ BLSJS.class_multiselector.prototype.add = function() {
 BLSJS.class_multiselector.prototype.remove = function() {
     this.checkSelected('right');
 }
-BLSJS.class_multiselector.prototype.init = function() {
+/**
+ * init multiselector
+ * @param {String} addHandler i.e. "A.add"
+ * @param {String} removeHandler i.e. "A.remove"
+ */
+BLSJS.class_multiselector.prototype.init = function(addHandler, removeHandler) {
     var self = this;
-    this.multiselector.find("DIV.middle A.add").click(function() {
+    this.multiselector.find(addHandler).click(function() {
         self.add();
         return false;
     });
-    this.multiselector.find("DIV.middle A.remove").click(function() {
+    this.multiselector.find(removeHandler).click(function() {
         self.remove();
         return false;
     });
 }
-/**
- * Usage:
- *  $('.multiSelector').each(function() {
- *      MS[i] = new PZU.class_multiselector(jQuery(this));
- *      MS[i].init();
- *      i++;
- *   });
- */
+
