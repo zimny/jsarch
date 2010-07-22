@@ -5,11 +5,29 @@
     <title></title>
     <script type="text/javascript" src="libs/jQuery-1.4.2.min.js"></script>
     <script type="text/javascript" src="core/core.js"></script>
+    <script type="text/javascript" src="core/classes/multiselector.js"></script>
     <script type="text/javascript" src="modules/exampleModule.js"></script>
 </head>
 <body>
-    <div id="foo">
-        bar
+    <h1>Multiselector example</h1>
+    <div id="multiselector">
+
+        <div class="left">
+        <select size="10" multiple="multiple">
+            <option>Lorem</option>
+            <option>Ipsum</option>
+            <option>Dolor</option>
+            <option>At</option>
+            <option>Amet</option>
+        </select>
+        </div>
+        <a href="#" class="add">add</a>
+        <a href="#" class="remove">remove</a>
+    <div class="right">
+        <select size="10">
+            
+        </select>
+        </div>
     </div>
 </body>
 </html>
