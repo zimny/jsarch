@@ -6,13 +6,42 @@
     <script type="text/javascript" src="libs/jQuery-1.4.2.min.js"></script>
     <script type="text/javascript" src="core/core.js"></script>
     <script type="text/javascript" src="core/classes/multiselector.js"></script>
+    <script type="text/javascript" src="core/classes/validator.js"></script>
     <script type="text/javascript" src="modules/exampleModule.js"></script>
+    <style type="text/css">
+        label {
+            width: 10em;
+            float: left;
+        }
+
+        label.error {
+            float: none;
+            color: red;
+            padding-left: .5em;
+            vertical-align: top;
+        }
+
+        p {
+            clear: both;
+        }
+
+        .submit {
+            margin-left: 12em;
+        }
+
+        em {
+            font-weight: bold;
+            padding-right: 1em;
+            vertical-align: top;
+        }
+    </style>
 </head>
 <body>
-    <h1>Multiselector example</h1>
-    <div id="multiselector">
+<h1>Multiselector example</h1>
 
-        <div class="left">
+<div id="multiselector">
+
+    <div class="left">
         <select size="10" multiple="multiple">
             <option>Lorem</option>
             <option>Ipsum</option>
@@ -20,14 +49,46 @@
             <option>At</option>
             <option>Amet</option>
         </select>
-        </div>
-        <a href="#" class="add">add</a>
-        <a href="#" class="remove">remove</a>
+    </div>
+    <a href="#" class="add">add</a>
+    <a href="#" class="remove">remove</a>
+
     <div class="right">
         <select size="10">
-            
+
         </select>
-        </div>
     </div>
+</div>
+<div id="validator">
+    <form class="cmxform" id="commentForm" method="get" action="">
+        <fieldset>
+            <legend>A simple comment form with submit validation and default messages</legend>
+            <p>
+                <label for="cname">Name</label>
+                <em>*</em><input id="cname" name="name" size="25" class="required" minlength="2"/>
+            </p>
+
+            <p>
+                <label for="cemail">E-Mail</label>
+                <em>*</em><input id="cemail" name="email" size="25" class="required email"/>
+            </p>
+
+            <p>
+                <label for="curl">URL</label>
+                <em> </em><input id="curl" name="url" size="25" class="url" value=""/>
+            </p>
+
+            <p>
+                <label for="ccomment">Your comment</label>
+                <em>*</em><textarea id="ccomment" name="comment" cols="22" class="required"></textarea>
+            </p>
+
+            <p>
+                <input class="submit" type="submit" value="Submit"/>
+            </p>
+        </fieldset>
+    </form>
+
+</div>
 </body>
 </html>

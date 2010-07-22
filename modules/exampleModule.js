@@ -10,6 +10,7 @@ $(document).ready(function() {
             listeners: function() {
                 var MS = [];
                 var i = 0;
+                utils.log("info","Example","Multiselector initialization")
                 $("#multiselector").each(function() {
                     MS[i] = new BLSJS.class_multiselector(jQuery(this));
                     MS[i].init("a.add","a.remove");
@@ -17,6 +18,9 @@ $(document).ready(function() {
                     utils.log("debug","Example","multiselektor numer " + (i+1) +" aktywowany");
                 });
                 utils.log("info","Example","Multiselector initialized")
+                utils.log("info","Example","Validator binding");
+                $("#commentForm").validate();
+                utils.log("info","Example","Validator binded");
             }
         }
     });
