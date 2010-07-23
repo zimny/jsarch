@@ -96,6 +96,11 @@ BLSJS.Utils = function(settings) {
                     }
                 }
             }
+        },
+
+        fireunitWrapper : function(fn,params){
+            if (window.fireunit && fireunit.ok)
+                fireunit[fn].apply(this,params);
         }
 
     }
